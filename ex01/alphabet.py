@@ -3,11 +3,13 @@ sel_moji = 10
 kake_moji = 2
 alphabet = list("ABCDEFGHIJKLMNOPQRSTUVWXYZ")
 import random
-
+import datetime
 def main():
+    st = datetime.datetime.now()
     kesu = quiz()
     ans(kesu)
-
+    ed = datetime.datetime.now()
+    print(f"{(ed-st).seconds}秒")
 def quiz():
     global sel_moji, kake_moji, alphabet
     kesumozi = []
@@ -20,7 +22,7 @@ def quiz():
         kesumozi.append(kesumoziyouso)
         hyozi.pop(kake_place)                   #表示文字完成
     print(f"表示文字:\n{hyozi}")
-    print(f"書けた文字:\n{kesumozi}")
+
     return kesumozi
 
 def ans(kesu):
@@ -34,7 +36,7 @@ def ans(kesu):
             mozi2 = input("2つ目の文字を入力してください:") 
             if mozi1 in kesu:
                 if mozi2 in kesu:
-                    print("正解です！おめでとう。")
+                    print("正解です！!おめでとう。")
                     break
             else:
                 print("違います。もう一度入力してください。")
@@ -46,5 +48,6 @@ def ans(kesu):
             print(f"残り回数:{maxkaisu-kaisu}")
             kaisu += 1
             continue
+            
 if __name__ == "__main__":
     main() 
