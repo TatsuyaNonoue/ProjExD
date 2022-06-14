@@ -19,7 +19,7 @@ def kaitou(seikai):
     if ans in seikai:
         print("正解！")
     else:
-        print("出直してこい！")
+        print("出直してこい！！")
     
 if __name__ == "__main__":
     main() 
