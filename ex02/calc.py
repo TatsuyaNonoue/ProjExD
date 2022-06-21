@@ -1,6 +1,11 @@
 import tkinter as tk
 import tkinter.messagebox as tkm
 
+def button_click(event):
+    btn = event.widget
+    num = btn["text"]
+    tkm.showinfo("",f"{num}のボタンが押されました。")
+
 if __name__ == "__main__":
     root = tk.Tk()
     root.title("電話レンジ(仮)")
@@ -13,6 +18,7 @@ if __name__ == "__main__":
                            height=2,
                            font=("Times New Roman",30)
                            ) #()の中は改行できる！
+        button.bind("<1>",button_click)
         button.grid(row=r, column=c)
         c += 1
         if(i-1) % 3 == 0:
