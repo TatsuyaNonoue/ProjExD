@@ -1,6 +1,6 @@
 import tkinter as tk
 import tkinter.messagebox as tkm
-
+import random
 def button_click(event):
     btn = event.widget
     num = btn["text"] #クリックされたボタンの文字
@@ -17,7 +17,6 @@ def button_click(event):
         entry.insert(tk.END, res2)
 
     elif num == "rand": #ランダムに生成
-        import random
         ketasu = int(entry.get())
         hoge = random.randint(1,10**ketasu)    
         entry.delete(0,tk.END)
@@ -58,7 +57,7 @@ def button_click(event):
 if __name__ == "__main__":
     root = tk.Tk()
     root.title("電話レンジ(仮)")
-    root.geometry("300x750")
+    #root.geometry("300x750")
 
     entry = tk.Entry(root, justify="right", width=10, font=("Times New Roman", 40))
     entry.grid(row=0,column=0,columnspan=3)
@@ -74,7 +73,7 @@ if __name__ == "__main__":
         button.bind("<1>",button_click)
         button.grid(row=r, column=c,columnspan=1)
         c += 1
-        if(i+1) % 3 == 0:
+        if(i+1) % 5 == 0:
             r+=1
             c = 0
             
