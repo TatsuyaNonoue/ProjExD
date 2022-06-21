@@ -3,9 +3,17 @@ import tkinter.messagebox as tkm
 
 def button_click(event):
     btn = event.widget
-    num = btn["text"]
+    num = btn["text"] #クリックされたボタンの文字
+    if num == "=":
+        eqn = entry.get()
+        res = eval(eqn)
+        entry.delete(0,tk.END)
+        entry.insert(tk.END, res)
+    else:
     #tkm.showinfo("",f"{num}のボタンが押されました。")
-    entry.insert(tk.END, f"{num}")
+        entry.insert(tk.END, f"{num}")
+
+
 
 if __name__ == "__main__":
     root = tk.Tk()
@@ -16,9 +24,9 @@ if __name__ == "__main__":
     entry.grid(row=0,column=0,columnspan=3)
 
     r ,c = 1, 0 # r:行番号 , c:列番号
-    for i, num in enumerate([i for i in range(9,-1,-1)]+["+"]):
+    for i, num in enumerate([i for i in range(9,-1,-1)]+["+"]+["="]):
         button = tk.Button(root,
-                           text=num,
+                           text=f"{num}",
                            width=4,
                            height=2,
                            font=("Times New Roman",30)
