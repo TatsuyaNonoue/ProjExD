@@ -1,5 +1,5 @@
-from calendar import leapdays
 import tkinter as tk
+import maze_maker as mm
 
 def key_down(event):
     global key
@@ -25,8 +25,7 @@ def main_proc():    #()の中にeventを入れるのはバインドするとき�
     #if key == "Left": cx -= 20
     #if key == "Right": cx -= 20
     canvas.coords("tori", cx, cy)
-    root.after(50,main_proc)
-
+    root.after(100,main_proc)
 
 if __name__ == "__main__":
     root = tk.Tk() #ウィンドウを作成
@@ -34,6 +33,8 @@ if __name__ == "__main__":
     
     canvas = tk.Canvas(root,width=1500,height=900,bg="black")
     canvas.pack()
+    maze_bg = mm.make_maze(15, 9) #1:壁/0:床を表す二次元リスト
+    mm.show_maze(canvas, maze_bg) #canvasにmaze_bgを貼る。
 
     tori = tk.PhotoImage(file="fig/2.png")
     cx, cy= 300, 400
