@@ -4,15 +4,15 @@ import tkinter.messagebox as tkm
 def change_photo(event): #ボタンを押したらそのマスだけで画像が変わる。
     global key,tori,mx,my,cx,cy
     key = event.keysym #keysym→押されたキーの値を取得
-    if key == "1":
-        tori = tk.PhotoImage(file="fig/1.png")
-        canvas.create_image(cx, cy, image=tori, tag="tori")
-    elif key == "2":
-        tori = tk.PhotoImage(file="fig/2.png")
-        canvas.create_image(cx, cy, image=tori, tag="tori")
-    else:
-        tori = tk.PhotoImage(file="fig/8.png")
-        canvas.create_image(cx, cy, image=tori, tag="tori")
+    #if key == "1":
+    #    tori = tk.PhotoImage(file="fig/1.png")
+    #    canvas.create_image(cx, cy, image=tori, tag="tori")
+    #elif key == "2":
+    #    tori = tk.PhotoImage(file="fig/2.png")
+    #    canvas.create_image(cx, cy, image=tori, tag="tori")
+    #else:
+    #    tori = tk.PhotoImage(file="fig/8.png")
+    #    canvas.create_image(cx, cy, image=tori, tag="tori")
 
 def key_down(event):
     global key
@@ -65,7 +65,7 @@ if __name__ == "__main__":
     mx, my =1, 1
     cx, cy= mx*100+50, my*100+50
     canvas.create_image(cx, cy, image=tori, tag="tori")
-    root.bind("<KeyPress>", change_photo)
+    #root.bind("<KeyPress>", change_photo)
     
     main_proc()
     root.mainloop()
