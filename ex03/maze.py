@@ -34,9 +34,9 @@ def main_proc():    #()の中にeventを入れるのはバインドするとき�
     try:
         if maze_bg[my+el[key][1]][mx+el[key][0]] == 0: #もし移動先が床なら
             my, mx = my+el[key][1], mx + el[key][0]
-        #elif maze_bg[my+el[key][1]][mx+el[key][0]] == 1: #もし移動先が壁なら
-        #    mm.show_maze2(canvas, maze_bg) #canvasにmaze_bgを貼る
-        #    tkm.showwarning("お前が殺した","こうかとんは死にました。あなたのせいで。")
+        elif maze_bg[my+el[key][1]][mx+el[key][0]] == 1: #もし移動先が壁なら
+            mm.show_maze2(canvas, maze_bg) #canvasにmaze_bgを貼る
+            tkm.showwarning("お前が殺した","こうかとんは死にました。あなたのせいで。")
             
     except:
         pass
