@@ -4,7 +4,7 @@ import tkinter.messagebox as tkm
 def change_photo(event): #ボタンを押したらそのマスだけで画像が変わる。
     global key,tori,mx,my,cx,cy
     key = event.keysym #keysym→押されたキーの値を取得
-    #if key == "1":
+    if key == "1":
     #    tori = tk.PhotoImage(file="fig/1.png")
     #    canvas.create_image(cx, cy, image=tori, tag="tori")
     #elif key == "2":
