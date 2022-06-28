@@ -65,7 +65,7 @@ if __name__ == "__main__":
     mx, my =1, 1
     cx, cy= mx*100+50, my*100+50
     canvas.create_image(cx, cy, image=tori, tag="tori")
-    #root.bind("<KeyPress>", change_photo)
+    #root.bind("<KeyPress>", change_photo)a
     
     main_proc()
     root.mainloop()
