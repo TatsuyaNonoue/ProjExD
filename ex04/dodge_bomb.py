@@ -67,7 +67,7 @@ def main():
         screen.blit(txt,[500,700])
         for event in pg.event.get():
             if event.type == pg.QUIT: return
-        key_states = pg.key.get_pressed() # 辞書
+        key_states = pg.key.get_pressed() 
         pg.display.update()
 #レベル1
         if key_states[pg.K_1] == True:
