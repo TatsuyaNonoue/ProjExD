@@ -6,6 +6,20 @@ def main():
 
     pg.display.set_caption("逃げろこうかとん") #タイトルバーに文字表示
     screen = pg.display.set_mode((1600,900))         #800x600のウィンドウ作成
+    screen_rect = screen.get_rect()
+    bgimg_sfc = pg.image.load("fig/pg_bg.jpg")
+    bgimg_rect = bgimg_sfc.get_rect()
+    screen.blit(bgimg_sfc, bgimg_rect)
+#    pg.display.update() #確認してみる。
+#    clock.tick(0.5)     #2秒間だけ表示
+
+    while True:
+        screen.blit(bgimg_sfc, bgimg_rect)
+        #練習2
+        for event in pg.event.get():
+            if event.type == pg.QUIT: return
+        pg.display.update()
+        clock.tick(1000)
 
 if __name__ == "__main__":
     pg.init()    #モジュールを初期化する
