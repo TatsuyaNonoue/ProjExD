@@ -12,12 +12,12 @@ def main():
     bgimg_sfc = pg.image.load("fig/pg_bg.jpg")
     bgimg_rect = bgimg_sfc.get_rect()
     screen.blit(bgimg_sfc, bgimg_rect)
-    #タイトル画面
+    #タイトル画面の背景
     t_bgimg_sfc = pg.image.load("fig/sky14.png")
     t_bgimg_sfc = pg.transform.rotozoom(t_bgimg_sfc, 0, 0.84) #サイズ変更
     t_bgimg_rect = t_bgimg_sfc.get_rect()
     screen.blit(t_bgimg_sfc, t_bgimg_rect)
-    #ハードモード
+    #ハードモードの背景
     h_bgimg_sfc = pg.image.load("fig/hiru.jpeg")
     h_bgimg_rect = h_bgimg_sfc.get_rect()
     screen.blit(h_bgimg_sfc, h_bgimg_rect)
@@ -28,7 +28,7 @@ def main():
     koukaton_rect = koukaton.get_rect()                #Rect
     koukaton_rect.center = 900, 400
 
-    #練習5 爆弾
+    #練習5 爆弾1
     bmimg = pg.Surface((20,20))
     bmimg.set_colorkey((0, 0, 0))
     pg.draw.circle(bmimg, (255, 0, 0), (10, 10), 10)
@@ -37,7 +37,7 @@ def main():
     bmimg_rect.centery = random.randint(0, screen_rect.height)
     vx, vy = +1, +1 #練習6a
 
-     #練習5 爆弾
+     #練習5 爆弾2
     bmimg1 = pg.Surface((20,20))
     bmimg1.set_colorkey((0, 0, 0))
     pg.draw.circle(bmimg1, (255, 0, 0), (10, 10), 10)
@@ -46,7 +46,7 @@ def main():
     bmimg1_rect.centery = random.randint(0, screen_rect.height)
     vx1, vy1 = +1, +1 #練習6a
 
-     #練習5 爆弾
+     #練習5 爆弾3
     bmimg2 = pg.Surface((20,20))
     bmimg2.set_colorkey((0, 0, 0))
     pg.draw.circle(bmimg2, (255, 0, 0), (10, 10), 10)
@@ -60,7 +60,7 @@ def main():
     while True:
         screen.blit(t_bgimg_sfc, t_bgimg_rect)
         font = pg.font.Font(None,70)
-        txt = font.render("Select Lebel and push the button",True, "BLUE")
+        txt = font.render("Select Level and push the button",True, "BLUE")
         screen.blit(txt,[400,600])
         font = pg.font.Font(None,80)
         txt = font.render("1:easy 2: nomal 3:hard",True, "YELLOW")
@@ -69,7 +69,7 @@ def main():
             if event.type == pg.QUIT: return
         key_states = pg.key.get_pressed() # 辞書
         pg.display.update()
-
+#レベル1
         if key_states[pg.K_1] == True:
             while True:
                 screen.blit(bgimg_sfc, bgimg_rect)
@@ -105,7 +105,7 @@ def main():
 
                 pg.display.update()
                 clock.tick(1000)
-            
+#レベル2  
         elif key_states[pg.K_2] == True:
             while True:
                 screen.blit(bgimg_sfc, bgimg_rect)
@@ -149,7 +149,7 @@ def main():
 
                 pg.display.update()
                 clock.tick(1000)
-
+#レベル3
         elif key_states[pg.K_3] == True:
             while True:
                 screen.blit(h_bgimg_sfc, h_bgimg_rect)
