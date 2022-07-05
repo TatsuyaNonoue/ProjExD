@@ -25,16 +25,13 @@ def main():
     bmimg_rect = bmimg.get_rect()
     bmimg_rect.centerx = random.randint(0, screen_rect.width)
     bmimg_rect.centery = random.randint(0, screen_rect.height)
+    vx, vy = +1, +1 #練習6a
 
     while True:
         screen.blit(bgimg_sfc, bgimg_rect)
-        screen.blit(koukaton, koukaton_rect)
-        screen.blit(bmimg, bmimg_rect)
         #練習2
         for event in pg.event.get():
             if event.type == pg.QUIT: return
-        pg.display.update()
-        clock.tick(1000)
 
         #練習4
         key_states = pg.key.get_pressed() # 辞書
@@ -42,12 +39,36 @@ def main():
         if key_states[pg.K_DOWN]  == True: koukaton_rect.centery += 1
         if key_states[pg.K_LEFT]  == True: koukaton_rect.centerx -= 1
         if key_states[pg.K_RIGHT] == True: koukaton_rect.centerx += 1
+        #練習7
+        if check_bound(koukaton_rect,screen_rect) != (1, 1): #領域外だったら
+            if key_states[pg.K_UP]    == True: koukaton_rect.centery += 1
+            if key_states[pg.K_DOWN]  == True: koukaton_rect.centery -= 1
+            if key_states[pg.K_LEFT]  == True: koukaton_rect.centerx += 1
+            if key_states[pg.K_RIGHT] == True: koukaton_rect.centerx -= 1
         screen.blit(koukaton, koukaton_rect)
-        
+        #練習6
+        bmimg_rect.move_ip(vx, vy)
         #練習5 爆弾
         screen.blit(bmimg, bmimg_rect)
+        #練習7
+        yoko, tate = check_bound(bmimg_rect,screen_rect)
+        vx *= yoko
+        vy *= tate
+        pg.display.update()
+        clock.tick(1000)
             
-
+def check_bound(rect, scr_rect):
+    yoko,tate = +1, +1
+    '''
+    [1]rect:こうかとん or 爆弾のRect
+    [2]scr_rect:スクリーンのRect
+    '''
+    if rect.left < scr_rect.left or scr_rect.right < rect.right:
+        yoko = -1
+    if rect.top < scr_rect.top or scr_rect.bottom < rect.bottom:
+        tate = -1
+    return yoko, tate
+    
 if __name__ == "__main__":
     pg.init()    #モジュールを初期化する
     main()
