@@ -1,4 +1,3 @@
-from re import X
 import pygame as pg
 import sys
 import random
