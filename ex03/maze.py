@@ -4,7 +4,7 @@ import tkinter.messagebox as tkm
 def change_photo(event): #ボタンを押したらそのマスだけで画像が変わる。
     global key,tori,mx,my,cx,cy
     key = event.keysym #keysym→押されたキーの値を取得
-    if key == "1":
+    #if key == "1":
     #    tori = tk.PhotoImage(file="fig/1.png")
     #    canvas.create_image(cx, cy, image=tori, tag="tori")
     #elif key == "2":
@@ -37,6 +37,7 @@ def main_proc():    #()の中にeventを入れるのはバインドするとき�
         elif maze_bg[my+el[key][1]][mx+el[key][0]] == 1: #もし移動先が壁なら
             mm.show_maze2(canvas, maze_bg) #canvasにmaze_bgを貼る
             tkm.showwarning("お前が殺した","こうかとんは死にました。あなたのせいで。")
+            return
             
     except:
         pass
