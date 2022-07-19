@@ -174,7 +174,7 @@ class Shot:
 def main():
     screen = pg.display.set_mode((1600,900))           #1600x900のウィンドウ作成
     clock = pg.time.Clock()
-    scr = Screen("逃げろ!こうかとん",(1600,900),"fig/pg_bg.jpg")
+    scr = Screen("逃げろ!こうかとん",(1600,900),"fig/town.jpg")
     kkt = Bird("fig/enemy_boss.png", 0.5, (900, 400))
     enm1 = Enemy("fig/enemy3.png",1,(+1, +1),scr)
     bkd = Bomb((255,0,0), 10, (+1, +1), scr)
