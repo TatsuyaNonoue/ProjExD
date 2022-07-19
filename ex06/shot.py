@@ -232,6 +232,9 @@ def main():
                             enm1 = Enemy("fig/enemy4.png",1,(+1, +1),scr)
                             enm1.update(scr)
                             kill += 1
+                            if kill >= 20:
+                                del bkd
+                                del enm1
                 if kkt.rct.colliderect(bkd.rct): #爆弾インスタンスのrect変数
                     tkm.showwarning("お前が殺した。","あなたが殺した。")
                     return
